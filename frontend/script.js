@@ -1,1 +1,3 @@
-console.log("Front-end Hevo+ iniciado com sucesso!");
+function voltarinicio(){
+    window.location.href = "index.html";
+}
