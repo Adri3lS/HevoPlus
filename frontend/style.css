@@ -13,12 +13,15 @@
   outline: none;
   text-decoration: none;
   box-sizing: border-box;
+  max-width: 100%;
   font-family: "Roboto", sans-serif;
 }
 
 body {
   background: var(--bg-color);
   margin: 0;
+  line-height: 1.5;
+  font-size: 1rem;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -36,17 +39,33 @@ body::before {
 /* HEADER */
 header {
   display: flex;
+  position: relative;        /* <-- importante: não fixed no início */
   align-items: center;
   justify-content: space-between;
   background: #fff;
   box-shadow: var(--shadow);
-  border-radius: 20px;
   padding: 0 60px;
   height: 90px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1300px;
+  width: 100%;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
 }
+
+header.scrolled {
+  position: fixed;   /* vira fixed ao rolar */
+  top: 0;
+  left: 35px;
+  width: 95%;
+  margin: 10px auto;
+  border-radius: 20px;
+  background: #f9f9f9;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  padding: 12px 40px; /* reduzir padding opcional */
+  height: 72px;       /* reduzir altura opcional */
+  z-index: 1000;
+}
+
 
 /* LOGO */
 .logo img {
@@ -99,6 +118,8 @@ header {
 
 /* ÍCONE DO USUÁRIO */
 .user-icon {
+  position: relative;
+  bottom: -10px;
   font-size: 2.2rem;
   color: var(--text-color);
   transition: 0.3s ease;
@@ -110,10 +131,10 @@ header {
 }
 .home-container {
   position: center;
-  background: url("../img/faixa_novembro_azul[1].png") no-repeat center center;
+  background: url("img/faixa_novembro_azul[1].png") no-repeat center center;
   background-size: cover;
-  width: 1537px;
-  height: 248px;
+  width: auto;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,3 +145,29 @@ header {
   overflow: hidden;
 }
 
+.home-container h3 {
+  position: relative;
+  bottom: -40px;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar{
+    display: none;
+  }
+
+  .logo{
+    position: relative;
+    right: 40px;
+  }
+  .user-icon{
+     position: relative;
+     left: 40px;
+     bottom: -5px;
+  }
+
+  header{
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 90%;
+  }
+}
