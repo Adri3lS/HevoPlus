@@ -1,59 +1,126 @@
 :root {
-  --main-color: #d3ad7f;
-  --black: #13131a;
-  --background: #1b86b1;
-  --border:0.1rem solid rgba(255, 255, 255, 0.3); 
-  font-size: 10px;
+  --main-color: #000000;
+  --accent-color: #00b4d8;
+  --text-color: #222;
+  --bg-color: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-size: 12px;
 }
-
 
 * {
   margin: 0;
   padding: 0;
   outline: none;
   text-decoration: none;
-  text-decoration: none;
-  text-transform: none;
-  transition: 0.2s linear;
-font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  background-color: var(--background);
+  background: var(--bg-color);
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-section {
-  padding: 3rem 2rem;
-  margin: 0 auto;
-  max-width: 1200px;
+/* Fundo leve com gradiente sutil */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+  opacity: 0.9;
+  z-index: -1;
 }
 
-.header {
-  top: 0;
-  left: 0;
-  z-index: 99;
-  border-bottom: var(--border);
-}
-
-.header section {
+/* HEADER */
+header {
   display: flex;
   align-items: center;
   justify-content: space-between;
- padding: 10px 50px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  padding: 0 60px;
+  height: 90px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1300px;
 }
 
+/* LOGO */
+.logo img {
+  width: 170px;
+  /* Aumenta o tamanho */
+  height: auto;
+  object-fit: contain;
+  transform: translateX(-20px);
+  /* Move um pouco mais à esquerda */
+  transition: transform 0.3s ease;
+}
 
-.navbar a{
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1.8rem;
-  color: rgb(0, 0, 0);
+.logo img:hover {
+  transform: scale(1.05) translateX(-20px);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar a {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
 }
 
 .navbar a:hover {
-  color: var(--main-color);
-  border-bottom: var(--border);
-  padding-bottom: 0.5rem;
-  font-size: 2rem;
+  color: var(--accent-color);
 }
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ÍCONE DO USUÁRIO */
+.user-icon {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+
+.user-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+.home-container {
+  position: center;
+  background: url("../img/faixa_novembro_azul[1].png") no-repeat center center;
+  background-size: cover;
+  width: 1537px;
+  height: 248px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0d1b2a;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
