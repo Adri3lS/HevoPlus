@@ -22,3 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // garante o estado certo ao carregar
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elementos = document.querySelectorAll("#list-container");
+
+  function animarScroll() {
+    const windowTop = window.innerHeight * 0.60; // 60% da tela
+
+    elementos.forEach(el => {
+      const topoElemento = el.getBoundingClientRect().top;
+
+      if (topoElemento < windowTop) {
+        el.classList.add("show");
+      } else {
+        el.classList.remove("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", animarScroll);
+  animarScroll(); // executa ao carregar
+});
+
+function paginaguia(){
+    window.location.href = "guia-alimentar.html";
+}
