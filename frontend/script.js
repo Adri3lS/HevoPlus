@@ -68,3 +68,35 @@ document.addEventListener('DOMContentLoaded',function() {
 function paginaexercicios(){
     window.location.href = "exercicios.html";
 }
+
+const menuBtn = document.getElementById("btn-menu");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", () => {
+  if (menu.classList.contains("show")) {
+    // inicia fadeOut
+    menu.classList.remove("show");
+    menu.classList.add("hide");
+
+    // remove do DOM após a animação
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 300);
+  } else {
+    // mostra com fadeIn
+    menu.style.display = "flex";
+    menu.classList.remove("hide");
+    menu.classList.add("show");
+  }
+});
+
+// fecha o menu ao clicar em um link
+menu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("show");
+    menu.classList.add("hide");
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 300);
+  });
+});
