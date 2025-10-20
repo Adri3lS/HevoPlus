@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="script.js">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +21,10 @@
 
     <nav class="navbar">
       <a href="index.html">Home</a>
-      <a href="check-up.html">Check-up </a>
-      <a href="receitas.html">Receitas</a>
-      <a href="exercicios.html">Exercícios</a>
       <a href="#guia">Guia Alimentar</a>
+      <a href="#checkup-list" id="checkup-link">Check-up</a>
+      <a href="#receitas-list" id="receitas-link">Receitas</a>
+      <a href="#exercicios-list" id="exercicios-lik">Exercícios</a>
     </nav>
     <div class="user-icon">
       <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/user--v1.png" alt="user--v1" />
@@ -55,9 +54,52 @@
         <button onclick="paginaguia()">Saiba Mais</button>
       </div>
     </section>
-  </main>
+  <section id="checkup-list">
+    <section id="checkup" class="imagem-list">
+      <img src="img/check-up.png" alt="">
+      <div  class="texto-list">
+        <h1>Check-up</h1> <br><br><br><br>
+        <h2>
+          O check-up é uma avaliação médica completa que ajuda a identificar problemas de saúde precocemente, mesmo quando não há sintomas aparentes. Ele inclui exames físicos, laboratoriais e de imagem, além de uma revisão do histórico médico e familiar.
 
-  <script src="script.js"></script>
+          Realizar check-ups regulares é importante para prevenir doenças, monitorar condições crônicas e manter um estilo de vida saudável. A frequência dos check-ups pode variar conforme a idade, sexo, histórico familiar e fatores de risco individuais.
+        </h2>
+        <h3>Faça já seu Check-up completo:</h3>
+        <button onclick="paginacheckup()">Saiba Mais</button>
+      </div>
+      </section>
+    </section>
+    <section id="receitas-list">
+      <section id="receitas" class="imagem-receitas">
+        <img src="img/receitas.png" alt="">
+        <div class="texto-receitas">
+          <h1>Receitas</h1> <br><br><br><br>
+          <h2>
+            Receitas são instruções detalhadas que orientam o preparo de pratos culinários. Elas incluem uma lista de ingredientes necessários, as quantidades exatas, e um passo a passo do modo de preparo.
+
+            As receitas podem variar desde pratos simples até refeições elaboradas, e são essenciais para quem deseja cozinhar, seja em casa ou profissionalmente. Elas ajudam a garantir que o prato final tenha o sabor e a textura desejados.
+          </h2>
+          <h3>Explore diversas receitas saudáveis:</h3>
+          <button onclick="paginareceitas()">Saiba Mais</button>
+      </section>
+    </section>
+    <section id="exercicios-list">
+      <section id="receitas" class="imagem-exercicios">
+        <img src="img/exercicios.png" alt="">
+        <div class="texto-exercicios">
+          <h1>Exercícios</h1> <br><br><br><br>
+          <h2>
+            Exercícios são atividades físicas planejadas e estruturadas que visam melhorar a saúde, a forma física e o bem-estar geral. Eles podem incluir uma variedade de movimentos, como correr, nadar, levantar pesos, praticar yoga, entre outros.
+
+            A prática regular de exercícios traz inúmeros benefícios, como o fortalecimento muscular, a melhora da resistência cardiovascular, o controle do peso corporal e a redução do risco de doenças crônicas.
+          </h2>
+          <h3>Descubra rotinas de exercícios para você:</h3>
+          <button onclick="paginaexercicios()">Saiba Mais</button>
+
+      </section>
+    </section>
+  </main>
+<script src="script.js"></script>
 
 </body>
 

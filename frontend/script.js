@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (topoElemento < windowTop) {
         el.classList.add("show");
-      } else {
+      } else {  
         el.classList.remove("show");
       }
     });
@@ -46,4 +46,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function paginaguia(){
     window.location.href = "guia-alimentar.html";
+}
+document.addEventListener('DOMContentLoaded',function() {
+    const targetId = '#checkup-list';
+    const targetElement = document.querySelector(targetId);
+});
+function paginacheckup(){
+    window.location.href = "check-up.html";
+}
+document.addEventListener('DOMContentLoaded',function() {
+    const targetId = '#receitas-list';
+    const targetElement = document.querySelector(targetId);
+});
+function paginareceitas(){
+    window.location.href = "receitas.html";
+}
+document.addEventListener('DOMContentLoaded',function() {
+    const targetId = '#exercicios-list';
+    const targetElement = document.querySelector(targetId);
+});
+function paginaexercicios(){
+    window.location.href = "exercicios.html";
 }
