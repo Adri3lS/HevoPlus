@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="img/Logos png preto (1).png" type="image/x-icon">
+  <title>Hevo+</title>
+</head>
+
+
+<body>
+  <header class="header">
+
+    <a href="#" class="logo">
+      <img width="170" height="170" src="img/Logos png preto (1).png" alt="logo" onclick="voltarinicio()">
+    </a>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="#dieta">Dieta</a>
+      <a href="#checkup-list" id="checkup-link">Check-up</a>
+      <a href="#receitas-list" id="receitas-link">Receitas</a>
+      <a href="#exercicios-list" id="exercicios-lik">Exercícios</a>
+    </nav>
+    <div id="btn-menu" class="user-icon">
+      <button><img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/user--v1.png"
+          alt="user--v1" /></button>
+    </div>
+    <div id="menu" class="menu">
+      <a href="">Entrar</a>
+      <a href="">Cadastre-se</a>
+    </div>
+
+  </header>
+
+  <div class="home-container">
+    <section id="home">
+      <div class="content">
+      </div>
+    </section>
+  </div>
+
+  <main id="list-container">
+    <section id="dieta" class="img-list">
+      <img src="img/diet.jpg" alt="">
+      <div class="text-list">
+        <h1>Dieta</h1> <br><br><br><br>
+        <h2>
+          Cuidar da alimentação é cuidar de si mesmo. Uma boa dieta dá mais energia, disposição e confiança para encarar
+          o dia. Além de fortalecer o corpo, melhora o foco, o humor e previne doenças que surgem com o tempo. Pequenas
+          escolhas no prato podem transformar sua saúde, seu desempenho e até sua autoestima. Alimente-se bem e sinta a
+          diferença em cada momento da sua vida.
+        </h2>
+        <h3>Descubra o poder da dieta:</h3>
+        <button onclick="paginadieta()">Saiba Mais</button>
+      </div>
+    </section>
+    <section id="checkup-list">
+      <section id="checkup" class="imagem-list">
+        <img src="img/check-up.png" alt="">
+        <div class="texto-list">
+          <h1>Check-up</h1> <br><br><br><br>
+          <h2>
+            A saúde é o bem mais valioso que possuímos, e cuidar dela é um gesto de amor-próprio e de responsabilidade
+            com o futuro. O check-up é mais do que uma simples avaliação médica: é uma oportunidade de conhecer melhor o
+            seu corpo, prevenir doenças e garantir mais qualidade de vida.
+
+            Realizar seu check-up regularmente é investir em si mesmo. É escolher viver com tranquilidade, energia e
+            disposição para aproveitar cada momento ao máximo. Afinal, cuidar da saúde não deve ser uma reação, e sim
+            uma atitude proativa de quem quer viver mais e melhor.
+          </h2>
+          <h3>Viva com saúde e confiança!</h3>
+          <button onclick="paginacheckup()">Saiba Mais</button>
+        </div>
+      </section>
+    </section>
+    <section id="receitas-list">
+      <section id="receitas" class="imagem-receitas">
+        <img src="img/receitas.png" alt="">
+        <div class="texto-receitas">
+          <h1>Receitas</h1> <br><br><br><br>
+          <h2>
+            Cozinhar é uma forma de cuidar de si mesmo e de quem você ama. Cada receita é um convite para explorar novos
+            sabores, nutrir o corpo e transformar ingredientes simples em momentos especiais. Receitas saudáveis não são
+            apenas sobre comer bem — são sobre viver melhor, com mais energia, leveza e prazer à mesa.
+          </h2>
+          <h3>Descubra o sabor da vida saudável!</h3>
+          <button onclick="paginareceitas()">Saiba Mais</button>
+      </section>
+    </section>
+    <section id="exercicios-list">
+      <section id="receitas" class="imagem-exercicios">
+        <img src="img/exercicios.png" alt="">
+        <div class="texto-exercicios">
+          <h1>Exercícios</h1> <br><br><br><br>
+          <h2>
+            Mover o corpo é um ato de superação e cuidado com a própria vida. Os exercícios fortalecem não apenas os
+            músculos, mas também a mente e a determinação. Cada treino é uma oportunidade de evoluir, ganhar energia e
+            conquistar bem-estar.
+            Praticar atividades físicas regularmente é investir em vitalidade, equilíbrio e qualidade de vida. Não
+            importa o ritmo, o importante é começar e seguir firme — o seu corpo e a sua saúde agradecem!
+          </h2>
+          <h3>Dê o primeiro passo para uma vida ativa!</h3>
+          <button onclick="paginaexercicios()">Saiba Mais</button>
+
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
