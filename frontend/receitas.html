@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="script.js">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,24 +21,220 @@
 
     <nav class="navbar">
       <a href="index.html">Home</a>
-      <a href="check-up.html">Check-up </a>
-      <a href="receitas.html">Receitas</a>
-      <a href="exercicios.html">Exercícios</a>
-      <a href="guia-alimentar.html">Guia Alimentar</a>
+      <a href="#guia">Dieta</a>
+      <a href="#checkup-list" id="checkup-link">Check-up</a>
+      <a href="#receitas-list" id="receitas-link">Receitas</a>
+      <a href="#exercicios-list" id="exercicios-link">Exercícios</a>
     </nav>
-    <div class="user-icon">
-      <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/user--v1.png" alt="user--v1" />
+    <div id="btn-menu" class="user-icon">
+      <button><img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/user--v1.png"
+          alt="user--v1" /></button>
     </div>
 
   </header>
+  <section class="banner-receitas">
+    <div class="overlay"></div>
+    <h1 class="titulo-principal">Receitas Saudáveis</h1>
+  </section>
+  <section id="receitas" class="receitas-section">
+    <div class="receitas-container">
 
-  <div class="home-container">
-    <section id= "#home">
-      <div class="content">
-        <h3>A evolução começa no seu dia a dia</h3>
+
+      <div class="receita-card">
+        <img src="img/receitas-pizza.jpg" alt="Pizza Proteica com Aveia na massa" class="receita-imagem">
+
+        <div class="receita-conteudo">
+          <h2>Pizza Proteica</h2>
+
+          <div class="bloco">
+            <h3>Ingredientes:</h3>
+            <ul>
+              <li>3 ovos</li>
+              <li>1 tomate picado</li>
+              <li>50g de queijo minas frescal(fica a sua preferência)</li>
+              <li>Sal e temperos a gosto</li>
+            </ul>
+          </div>
+
+          <div class="bloco">
+            <h3>Modo de preparo:</h3>
+            <ol>
+              <li>Quebre os ovos e bata até ficarem homogêneos, depois acrescente o tomate picado e o queijo.</li>
+              <li>Despeje a mistura em uma frigideira já aquecida e tampe.</li>
+              <li>Deixe cozinhar em fogo médio por cerca de 5 minutos.</li>
+            </ol>
+          </div>
+
+          <div class="bloco">
+            <h3>Macronutrientes (por porção):</h3>
+            <ul>
+              <li><strong>Calorias:</strong> 350 kcal</li>
+              <li><strong>Proteínas:</strong> 30 g</li>
+              <li><strong>Carboidratos:</strong> 5 g</li>
+              <li><strong>Gorduras:</strong> 25 g</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </section>
-  </div>
+      <div class="receita-card">
+        <img src="img/coxinha-receitas.jpeg" alt="Coxinha Fitness de Frango" class="receita-imagem">
+
+        <div class="receita-conteudo">
+          <h2>Coxinha Fitness</h2>
+
+          <div class="bloco">
+            <h3>Ingredientes:</h3>
+            <ul>
+              <li>200g de coxa e sobrecoxa desfiada(cozida sem pele)</li>
+              <li>1 xícara de batata-doce cozida e amassada</li>
+              <li>2 colheres de sopa de farinha de aveia</li>
+              <li>Farelo de aveia para empanar</li>
+              <li>Temperos a gosto(sal,pimenta,páprica)</li>
+            </ul>
+          </div>
+
+          <div class="bloco">
+            <h3>Modo de preparo:</h3>
+            <ol>
+              <li>Tempere o frango desfiado a gosto e misture bem até obter um recheio saboroso.</li>
+              <li>Modele pequenas porções da massa de batata-doce com farinha de aveia, formando coxinhas e colocando o
+                frango no centro.</li>
+              <li>Passe cada coxinha na clara de ovo e depois no farelo de aveia para empanar.</li>
+              <li>Leve ao forno preaquecido a 200 °C por cerca de 25 minutos ou asse na airfryer a 180 °C por 15
+                minutos, até dourar.</li>
+            </ol>
+          </div>
+
+          <div class="bloco">
+            <h3>Macronutrientes (por porção):</h3>
+            <ul>
+              <li><strong>Calorias:</strong> 120 kcal</li>
+              <li><strong>Proteínas:</strong> 12 g</li>
+              <li><strong>Carboidratos:</strong> 10 g</li>
+              <li><strong>Gorduras:</strong> 3 g</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="receita-card">
+        <img src="img/sorvete-receita.jpg" alt="Sorvete Fitness de whey" class="receita-imagem">
+
+        <div class="receita-conteudo">
+          <h2>Sorvete Fitness</h2>
+
+          <div class="bloco">
+            <h3>Ingredientes:</h3>
+            <ul>
+              <li>1/2 xícara de arroz branco ou integral</li>
+              <li>1 xícara de leite desnatado(ou lei vegetal)</li>
+              <li>1 scoop de whey protein(sua escolha)</li>
+              <li>1 colher de chá de essência de baunilha(opcional)</li>
+              <li>1 colher de chá de adoçante ou mel</li>
+              <li>1 pitada de canela(opcional)</li>
+            </ul>
+          </div>
+
+          <div class="bloco">
+            <h3>Modo de preparo:</h3>
+            <ol>
+              <li>Cozinhe o arroz com o dobro de água até que fique bem macio e quase sem líquido.</li>
+              <li>Aqueça o leite e adicione o whey protein, mexendo até dissolver completamente.</li>
+              <li>Junte o leite com whey ao arroz já cozido, mexendo constantemente.</li>
+              <li>Acrescente a essência de baunilha, o adoçante e a canela.</li>
+              <li>Cozinhe em fogo baixo até atingir uma textura cremosa.</li>
+              <li>Sirva quente ou frio, e finalize com um toque de canela ou coco ralado sem açúcar.</li>
+            </ol>
+          </div>
+
+          <div class="bloco">
+            <h3>Macronutrientes (por porção):</h3>
+            <ul>
+              <li><strong>Calorias:</strong> 220 kcal</li>
+              <li><strong>Proteínas:</strong> 25 g</li>
+              <li><strong>Carboidratos:</strong> 30 g</li>
+              <li><strong>Gorduras:</strong> 3 g</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="receita-card">
+        <img src="img/bolo-receitas.jpg" alt="Bolo de banana com whey" class="receita-imagem">
+
+        <div class="receita-conteudo">
+          <h2>Bolo de Banana</h2>
+
+          <div class="bloco">
+            <h3>Ingredientes:</h3>
+            <ul>
+              <li>1 banana madura</li>
+              <li>1 ovo</li>
+              <li>2 colheres de sopa de aveia</li>
+              <li>1 scoop de whey protein(sua escolha)</li>
+              <li>Canela a gosto</li>
+            </ul>
+          </div>
+
+          <div class="bloco">
+            <h3>Modo de preparo:</h3>
+            <ol>
+              <li>Amasse bem a banana e misture com os demais ingredientes até obter uma massa uniforme.</li>
+              <li>Coloque a mistura em uma caneca e leve ao micro-ondas por 2 a 3 minutos.</li>
+              <li>Deixe esfriar por alguns instantes antes de saborear.</li>
+            </ol>
+          </div>
+
+          <div class="bloco">
+            <h3>Macronutrientes (por porção):</h3>
+            <ul>
+              <li><strong>Calorias:</strong> 270 kcal</li>
+              <li><strong>Proteínas:</strong> 22 g</li>
+              <li><strong>Carboidratos:</strong> 35 g</li>
+              <li><strong>Gorduras:</strong> 6 g</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="receita-card">
+        <img src="img/cookies-receitas.png" alt="Cookies Fitness de Aveia e banana" class="receita-imagem">
+
+        <div class="receita-conteudo">
+          <h2>Cookies Caseiros</h2>
+
+          <div class="bloco">
+            <h3>Ingredientes:</h3>
+            <ul>
+              <li>2 bananas maduras</li>
+              <li>1 xícara de aveia em flocos</li>
+              <li>1 colher de sopa de pasta de amendoim</li>
+              <li>Canela a gosto</li>
+            </ul>
+          </div>
+
+          <div class="bloco">
+            <h3>Modo de preparo:</h3>
+            <ol>
+              <li>Amasse bem as bananas e misture com a aveia, a pasta de amendoim e a canela até formar uma massa
+                consistente.</li>
+              <li>Modele porções no formato de cookies e disponha em uma assadeira levemente untada.</li>
+              <li>Asse em forno preaquecido a 180 °C por aproximadamente 15 minutos.</li>
+            </ol>
+          </div>
+
+          <div class="bloco">
+            <h3>Macronutrientes (por porção):</h3>
+            <ul>
+              <li><strong>Calorias:</strong> 90 kcal</li>
+              <li><strong>Proteínas:</strong> 3 g</li>
+              <li><strong>Carboidratos:</strong> 15 g</li>
+              <li><strong>Gorduras:</strong> 3 g</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <script src="script.js"></script>
 
 </body>

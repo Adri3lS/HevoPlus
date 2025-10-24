@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
   animarScroll(); // executa ao carregar
 });
 
-function paginaguia(){
-    window.location.href = "guia-alimentar.html";
+function paginadieta(){
+    window.location.href = "dieta.html";
 }
 document.addEventListener('DOMContentLoaded',function() {
     const targetId = '#checkup-list';
@@ -90,13 +90,3 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
-// fecha o menu ao clicar em um link
-menu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("show");
-    menu.classList.add("hide");
-    setTimeout(() => {
-      menu.style.display = "none";
-    }, 300);
-  });
-});
