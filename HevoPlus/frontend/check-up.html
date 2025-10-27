@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br"<br><br>>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="script.js">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="continuação-checkup.html">
+  <title>Hevo+</title>
+</head>
+
+
+<body id="bodycheckup">
+  <header class="header">
+    <a href="#" class="logo">
+      <img width="170" height="170" src="img/Logos png preto (1).png" alt="logo" onclick="voltarinicio()">
+    </a>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="check-up.html">Check-up </a>
+      <a href="receitas.html">Receitas</a>
+      <a href="exercicios.html">Exercícios</a>
+      <a href="guia-alimentar.html">Guia Alimentar</a>
+    </nav>
+    <div class="user-icon">
+    </div>
+  </header>
+  <div class="check-up-container">
+    <section class="check-up-section">  
+      <h1>Check-up de Saúde</h1>
+      <hr><br>
+      <form id="checkup-form"">
+        <label for="text">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required min="1" max="100"><br><br>
+        
+        <label for="height">Altura (cm):</label name="altura" >
+        <input Parsefloat type="number" id="altura" name="altura" required><br><br>
+        
+        <label for="atividade-exames">Quantas vezes ao ano você faz exames de rotina ? </label><br>
+        <select id="atividade-exames" name="activity-level" required>
+          <option value="Nenhuma">Nenhuma vez ao ano </option>
+          <option value="umavez">1 vez ao ano </option>
+          <option value="moderately-active">2 vezes  ao ano</option>
+          <option value="very-active"> 3 vezes ou mais ao ano </option>  
+        </select><br><br>
+        <label for="dataexame">Qual a ultima vez que você fez o exame ?</label><br>
+        <input type="date" id="dataexame" name="dataexame" required><br><br>
+        <input type="button" value="Enviar" id="botaoenviar" onclick="paginacontinuacao()" required>
+      
+        </form>
+      
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
