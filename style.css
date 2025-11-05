@@ -1,0 +1,1193 @@
+:root {
+  --main-color: #000000;
+  --accent-color: #00b4d8;
+  --text-color: #222;
+  --bg-color: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-size: 12px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Ensure media elements do not overflow their containers */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  background: var(--bg-color);
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fundo leve com gradiente sutil */
+body::before {
+  content: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  position: relative;        /* <-- importante: não fixed no início */
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: var(--shadow);
+  padding: 0 60px;
+  height: 90px;
+  width: 100%;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+header.scrolled {
+  position: fixed;   /* vira fixed ao rolar */
+  top: 0;
+  left: 35px;
+  width: 95%;
+  margin: 10px auto;
+  border-radius: 20px;
+  background: #f9f9f9;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  padding: 12px 40px; /* reduzir padding opcional */
+  height: 72px;       /* reduzir altura opcional */
+  z-index: 1000;
+}
+
+
+/* LOGO */
+.logo img {
+  width: 170px;
+  /* Aumenta o tamanho */
+  height: auto;
+  object-fit: contain;
+  transform: translateX(-20px);
+  /* Move um pouco mais à esquerda */
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05) translateX(-20px);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar a {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent-color);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ÍCONE DO USUÁRIO */
+.user-icon {
+  position: relative;
+  bottom: -6px;
+  font-size: 2.2rem;
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+
+.user-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.user-icon button {
+  background-color: white;
+  border: black 2px solid;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.menu {
+  position: absolute;
+  top: 90px; /* ajusta conforme seu header */
+  right: 10px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none; /* escondido por padrão */
+  flex-direction: column;
+  transition: all 0.3s ease;
+  z-index: 999;
+  width: 160px;
+  height: 160px;
+}
+
+.menu.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.menu.hide {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.menu a {
+  padding: 15px 20px;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 17px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  margin: 7px;
+}
+
+.header {
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.home-container {
+  position: center;
+  background: url("img/Template Novembro Azul.png") no-repeat center center;
+  background-size: cover;
+  width: auto;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0d1b2a;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 900px) {
+  .navbar{
+    display: none;
+  }
+
+  .logo{
+    position: relative;
+    right: 40px;
+  }
+  .user-icon{
+     position: relative;
+     left: 40px;
+     bottom: -5px;
+  }
+
+  header{
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 90%;
+  }
+}
+
+
+/*==============================
+          HOME / INDEX
+===============================*/
+
+
+#list-container,
+#checkup-list,
+#receitas-list,
+#exercicios-list {
+  margin: 0 auto;
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  padding: 20px 0; /* reduz distância entre seções */
+  opacity: 1;
+}
+
+.img-list,
+.imagem-list,
+.imagem-receitas,
+.imagem-exercicios {
+  margin: 30px auto; /* espaçamento igual entre cards */
+}
+
+
+/* CARD PADRÃO (igual receitas) */
+.img-list,
+.imagem-list,
+.imagem-receitas,
+.imagem-exercicios {
+  background: #ffffff;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 35px;
+  transition: .2s;
+}
+
+.img-list:hover,
+.imagem-list:hover,
+.imagem-receitas:hover,
+.imagem-exercicios:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+/* imagem */
+.img-list img,
+.imagem-list img,
+.imagem-receitas img,
+.imagem-exercicios img {
+  width: 42%;
+  border-radius: 18px;
+  object-fit: cover;
+  max-height: 300px;
+}
+
+/* texto */
+.text-list,
+.texto-list,
+.texto-receitas,
+.texto-exercicios {
+  width: 55%;
+  text-align: left;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-list h1,
+.texto-list h1,
+.texto-receitas h1,
+.texto-exercicios h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #00b4d8;
+  margin-bottom: 12px;
+}
+
+.text-list h2,
+.texto-list h2,
+.texto-receitas h2,
+.texto-exercicios h2 {
+  font-size: 1.3rem;      /* texto maior */
+  text-align: justify;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Dieta e Receitas — alinhamento entre subtítulo e botão */
+.img-list .text-list h3,
+.imagem-receitas .texto-receitas h3 {
+  margin-top: 0;                  /* remove espaçamento extra */
+  display: inline-flex;
+  align-items: center;            /* centraliza verticalmente */
+  gap: 10px;
+}
+
+/* Agrupa subtítulo e botão no mesmo eixo */
+.img-list .text-list,
+.imagem-receitas .texto-receitas {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-list .text-list h3,
+.imagem-receitas .texto-receitas h3 {
+  align-self: flex-end; /* alinha com o botão */
+}
+
+.img-list .text-list button,
+.imagem-receitas .texto-receitas button {
+  align-self: flex-end;  /* botão à direita */
+  margin-top: -10px;     /* sobe para alinhar com o h3 */
+}
+
+/* SUBTÍTULO */
+.text-list h3,
+.texto-list h3,
+.texto-receitas h3,
+.texto-exercicios h3 {
+  font-size: 1.5rem;
+  margin-top: 14px;
+  color: #00b4d8;
+  font-weight: 600;
+}
+
+/* BOTÕES PADRÃO */
+.text-list button,
+.texto-list button,
+.texto-receitas button,
+.texto-exercicios button {
+  align-self: flex-start;      /* alinha à esquerda do texto */
+  margin-top: 25px;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #00b4d8;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,.15);
+  transition: all 0.3s ease;
+}
+
+.text-list button:hover,
+.texto-list button:hover,
+.texto-receitas button:hover,
+.texto-exercicios button:hover {
+  background: #0077a8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.20);
+}
+
+/* alternância lado (manter original) */
+.imagem-list,
+.imagem-exercicios {
+  flex-direction: row-reverse;
+}
+
+.img-list,
+.imagem-list,
+.imagem-receitas,
+.imagem-exercicios {
+  box-shadow: 0 6px 22px rgba(0,0,0,0.10);
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.img-list:hover,
+.imagem-list:hover,
+.imagem-receitas:hover,
+.imagem-exercicios:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+/* === Botões à direita para Dieta e Receitas === */
+.img-list .text-list button,
+.imagem-receitas .texto-receitas button {
+  align-self: flex-end;  /* posiciona o botão à direita */
+  margin-top: 15px;
+}
+
+/* Garante que o título fique acima e o botão alinhado com ele */
+.img-list .text-list,
+.imagem-receitas .texto-receitas {
+  align-items: flex-start;
+  position: relative;
+}
+
+@media (max-width: 1000px) {
+  .img-list .text-list button,
+  .imagem-receitas .texto-receitas button {
+    align-self: center; /* volta ao centro no celular */
+  }
+}
+
+/*==============================
+        RESPONSIVO
+===============================*/
+
+@media(max-width: 1000px) {
+  .img-list,
+  .imagem-list,
+  .imagem-receitas,
+  .imagem-exercicios {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .img-list img,
+  .imagem-list img,
+  .imagem-receitas img,
+  .imagem-exercicios img {
+    width: 100%;
+    max-height: 240px;
+  }
+
+  .text-list,
+  .texto-list,
+  .texto-receitas,
+  .texto-exercicios {
+    width: 100%;
+    text-align: center;
+  }
+
+  .text-list button,
+  .texto-list button,
+  .texto-receitas button,
+  .texto-exercicios button {
+    margin: 20px auto 0 auto;
+  }
+}
+
+
+/* Telas notebook pequeno */
+@media (max-width: 1100px) {
+  .img-list img,
+  .imagem-receitas img {
+    max-height: 260px;
+  }
+}
+
+/* Tela tablet e celular */
+@media (max-width: 900px) {
+  .img-list img,
+  .imagem-list img,
+  .imagem-receitas img,
+  .imagem-exercicios img {
+    width: 100%;
+    max-height: 250px;
+    margin-bottom: 15px;
+  }
+}
+
+/* ===== SEÇÃO DE RECEITAS ===== */
+
+/* Seção principal */
+.receitas-section {
+  background-color: #f9fafb;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container geral */
+.receitas-container {
+  width: 90%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+/* Card da receita */
+.receita-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 2px solid #d3d3d3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.receita-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem */
+.receita-imagem {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+/* Conteúdo ao lado */
+.receita-conteudo {
+  flex: 1;
+  text-align: left;
+}
+
+/* Título da receita */
+.receita-conteudo h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+/* Blocos internos */
+.bloco {
+  margin-bottom: 25px;
+}
+
+.bloco h3 {
+  background-color: #00b4d8;
+  color: #000000;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Listas */
+.bloco ul, .bloco ol {
+  margin-left: 20px;
+  color: #333;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Responsivo (celular) */
+@media (max-width: 768px) {
+  .receita-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .receita-imagem {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .receita-conteudo {
+    text-align: center;
+  }
+
+  .bloco ul, .bloco ol {
+    margin-left: 0;
+    list-style-position: inside;
+  }
+}
+/* ===== Banner Receitas ===== */
+.banner-receitas {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url('img/receitas2.0.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-receitas .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* escurece a imagem para o texto ficar legível */
+}
+
+/* Título dentro do banner */
+.banner-receitas .titulo-principal {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.titulo-principal::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #00b4d8;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== SEÇÃO DE EXERCÍCIOS ===== */
+
+/* Seção principal */
+.exercicios-section {
+  background-color: #f9fafb;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container geral */
+.exercicios-container {
+  width: 90%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+/* Card do exercicio */
+.exercicios-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 2px solid #d3d3d3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.exercicios-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem */
+.exercicios-imagem {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+
+/* Conteúdo ao lado */
+.exercicios-conteudo {
+  flex: 1;
+  text-align: left;
+}
+
+/* Título do exercicio */
+.exercicios-conteudo h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+/* Blocos internos */
+.bloco {
+  margin-bottom: 25px;
+}
+
+.bloco h3 {
+  background-color: #00b4d8;
+  color: #000000;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Listas */
+.bloco ul, .bloco ol {
+  margin-left: 20px;
+  color: #333;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Responsivo (celular) */
+@media (max-width: 768px) {
+  .receita-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .exercicios-imagem {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .exercicios-conteudo {
+    text-align: center;
+  }
+
+  .bloco ul, .bloco ol {
+    margin-left: 0;
+    list-style-position: inside;
+  }
+}
+/* ===== Banner Exercícios ===== */
+.banner-exercicios {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url('img-exerc/banner-exercicios.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-exercicios .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* escurece a imagem para o texto ficar legível */
+}
+
+/* Título dentro do banner */
+.banner-exercicios .titulo-principal {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.titulo-principal::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #00b4d8;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.descricao {
+    text-align: justify;
+}
+
+/* ===== SEÇÃO DIETA (PADRONIZADA COM RECEITAS SAUDÁVEIS) ===== */
+
+/* ===== Banner Dieta ===== */
+.banner-dieta {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url('img/aba.dieta.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-dieta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.banner-dieta .titulo-principal {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.banner-dieta .titulo-principal::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #00b4d8;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Container Principal ===== */
+
+ .container {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 80vh;
+  padding: 50px 0 80px; /* reduz espaço e aproxima o card do banner */
+}
+
+/* ===== Card da Calculadora ===== */
+.card {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 50px 60px;
+  width: 750px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.card2 {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 50px 60px;
+  width: 750px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.card2 h2 {
+  color: #007bff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.card2 p {
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.card h2 {
+  color: #007bff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* ===== Formulário ===== */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #00b4d8;
+}
+
+/* ===== Botão ===== */
+#btn-dieta {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
+#btn-dieta button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+#btn-dieta button:hover {
+  background: linear-gradient(90deg, #0056b3, #0041a8);
+  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.4);
+  transform: translateY(-2px);
+}
+
+#btn-dieta button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 86, 179, 0.3);
+}
+
+/* ===== Resultado ===== */
+.resultado {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.resultado h3 {
+  color: #00b4d8;
+}
+
+.resultado ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resultado li {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+ /* ===== Banner checkup ===== */
+
+.banner-checkup {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url('img/aba\ checkup.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-checkup .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.banner-checkup .titulo-principal {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.banner-checkup .titulo-principal::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #00b4d8;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.descricao {
+    text-align: justify;
+}
+
+
+/* ======== Estilos gerais ======== */
+#checkup-body {
+  font-family: "Segoe UI", sans-serif;
+  background: #eef2f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======== Card principal ======== */
+#checkup-body .agenda-exames {
+  max-width: 540px;
+  background: white;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform .2s, box-shadow .2s;
+}
+
+#checkup-body .agenda-exames:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* ======== Títulos ======== */
+#checkup-body .agenda-exames h1 {
+  text-align: center;
+  color: #00b4d8;
+  margin-bottom: 30px;
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+#checkup-body .agenda-exames h2 {
+  text-align: center;
+  color: #00b4d8;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+/* ======== Form ======== */
+#checkup-body #exames-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Inputs */
+#checkup-body .agenda-exames input[type="text"],
+#checkup-body .agenda-exames input[type="date"] {
+  flex: 1 1 160px;
+  padding: 12px;
+  border: 1px solid #d3d8e0;
+  border-radius: 10px;
+  outline: none;
+  background: #f9f9fb;
+  transition: border .2s, box-shadow .2s;
+}
+
+#checkup-body .agenda-exames input:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.25);
+}
+
+/* Botão principal */
+#checkup-body .agenda-exames button {
+  padding: 14px 24px;
+  background: #00b4d8;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform .1s;
+}
+
+#checkup-body .agenda-exames #exames-form button:hover {
+ 
+  background: #00b4d8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.20)
+}
+
+#checkup-body .agenda-exames button:active {
+  transform: scale(0.95);
+}
+
+/* ======== Lista ======== */
+#checkup-body #exames-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#checkup-body li {
+  background: #f4f7fd;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #00b4d8;
+  transition: background .2s;
+}
+
+#checkup-body li:hover {
+  background: #eaf1ff;
+}
+
+#checkup-body li span {
+  font-weight: 500;
+  color: #333;
+}
+
+/* ======== Botão excluir ======== */
+#checkup-body .delete-btn {
+  background: #e94e4e;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+
+#checkup-body .delete-btn:hover {
+  background: #c43c3c;
+}
+
+#checkup-body .delete-btn:active {
+  transform: scale(.95);
+}
+
+/* ======== Responsividade ======== */
+@media (max-width: 480px) {
+  #checkup-body .agenda-exames {
+    padding: 25px;
+  }
+
+  #checkup-body #exames-form {
+    flex-direction: column;
+  }
+
+  #checkup-body .agenda-exames input,
+  #checkup-body .agenda-exames button {
+    width: 100%;
+  }
+}
