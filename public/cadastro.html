@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="img/Logos png preto (1).png" type="image/x-icon">
+</head>
+<body>
+    <div class="container-cadastro">
+        <form id="cadastroform" novalidate>
+            <span id="titulo-cadastro">Cadastro</span>
+            <label class="form-type" for="nome">Nome Completo</label>
+            <input type="text" id="nomecadastro" name="nome" placeholder="Digite seu nome completo" autocomplete="name" >
+
+            <label class="form-type" for="senha">Data de Nascimento</label>
+            <input type="date" name="data" id="data" placeholder="Informe sua data de Nascimento" autocomplete="bday" >
+
+            <label class="form-type" for="email">E-mail</label>
+            <input type="email" id="emailcadastro" name="email" placeholder="Digite seu E-mail" autocomplete="username" >
+
+            <label class="form-type" for="senha">Senha</label>
+            <input type="password" id="senhacadastro" name="senhacadastro" placeholder="Digite sua senha" autocomplete="new-password">
+            
+            <div id="error-cadastro" class="error" aria-live="polite"></div>
+            <button type="button" class="btn-cadastro" id="cadastrobotao">Registrar</button>
+
+            <div class="signip">
+                Já tem uma conta?
+                <strong><a href="login.html">Entrar</a></strong>
+            </div>
+        </form>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

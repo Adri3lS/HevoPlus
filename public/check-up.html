@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="script.js">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +12,8 @@
 </head>
 
 
-<body>
+<body id="checkup-body">
+
   <header class="header">
 
     <a href="#" class="logo">
@@ -27,15 +27,30 @@
       <a href="receitas.html">Receitas</a>
       <a href="exercicios.html">Exercícios</a>
     </nav>
-   <div id="btn-menu" class="user-icon">
-      <button><img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/user--v1.png"
-          alt="user--v1" /></button>
+    <div id="btn-menu" class="user-icon">
+      <button><img width="48" height="48" src="img/user--v1.png" alt="user--v1" /></button>
     </div>
-
   </header>
 
-  
-  <script src="script.js"></script>
+  <section class="banner-checkup">
+    <div class="overlay"></div>
+    <h1 class="titulo-principal">Checkup</h1>
+  </section>
+
+  <div class="agenda-exames">
+    <h1>Agenda de Exames</h1>
+
+    <form id="exames-form">
+      <input type="text" id="exames-name" placeholder="Nome do exame" required>
+      <input type="date" id="exames-date" required>
+      <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Exames Registrados</h2>
+    <ul id="exames-list"></ul>
+  </div>
+
+  <script src="javascript/checkup.js"></script>
 
 </body>
 
