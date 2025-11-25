@@ -70,7 +70,7 @@
     ordemCrescente = !ordemCrescente;
 
     // Atualiza texto do botão
-    sortBtn.textContent = ordemCrescente ? "A-Z" : "Z-A";
+    sortBtn.textContent = ordemCrescente ? "Antigos" : "Recentes";
 
     // Recria lista ordenada
     let novaLista = [];
